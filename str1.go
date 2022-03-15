@@ -23,4 +23,6 @@ func main() {
 	} else {
 		fmt.Println("Wrong")
 	}
+	// а еще можно выводить так
+	os.Stdout.WriteString(string(textRune))
 }
