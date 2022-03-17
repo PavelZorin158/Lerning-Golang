@@ -40,7 +40,7 @@ func main() {
 	// true если равны
 	fmt.Println(firstTime.Equal(secondTime))
 
-	future := now.Add(time.Hour * 5) // перемещаемся на 12 часов вперед
+	future := now.Add(time.Hour * 5) // перемещаемся на 5 часов вперед
 	past := now.AddDate(-1, -2, -3)
 	// перемещаемся на 1 год, два месяца и 3 дня назад
 	fmt.Println(future.Format("02-01-2006 15:04:05"))
@@ -48,4 +48,12 @@ func main() {
 
 	// вычисляет время, прошедшее между двумя датами
 	fmt.Println(future.Sub(past))
+
+	// переводит в наносекунды
+	dur, err := time.ParseDuration("1h12m3s")
+	if err != nil {
+		panic(err)
+	}
+	// округление до минут и вывод в минутах
+	fmt.Println(dur.Round(time.Minute).Minutes()) //72
 }
